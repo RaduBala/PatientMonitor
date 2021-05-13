@@ -1,0 +1,17 @@
+<h1>Patient</h1>
+
+
+<form (ngSubmit)="submit()">
+  <img [src]="imageData" height="200" width="200" *ngIf="imageData">
+  <br />
+  <label for="patientName">Name</label>
+  <input type="text" class="form-control" id="patientName" [(ngModel)]="patient.name" name="patientName">
+  <br /> 
+  <label for="weight">Weight</label>
+  <input type="number" class="form-control" id="weight" [(ngModel)]="patient.weight" name="weight">
+  <br />
+  <label for="height">Height</label>
+  <input type="number" class="form-control" id="height" [(ngModel)]="patient.height" name="height">
+  <br />
+  <button class="btn btn-primary">Save</button>
+</form>

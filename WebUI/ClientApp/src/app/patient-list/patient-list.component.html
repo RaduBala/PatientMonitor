@@ -1,0 +1,23 @@
+<h1>Patients</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>Name</th>
+      <th>Weight</th>
+      <th>Height</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let p of patients; let indexOfElements=index;">
+      <td>{{ indexOfElements + 1 }}</td>
+      <td>{{ p.name }}</td>
+      <td>{{ p.weight }}</td>
+      <td>{{ p.height }}</td>
+      <td>
+        <button class="btn btn-primary" (click)="onView(p)">Edit</button>
+      </td>
+    </tr>
+  </tbody>
+</table>

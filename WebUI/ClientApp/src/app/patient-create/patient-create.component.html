@@ -1,0 +1,17 @@
+<h1>Create patient</h1>
+
+<form (ngSubmit)="submit()">
+  <div class="form-group">
+    <label for="image">Photo</label>
+    <input id="image" type="file" class="form-control" (change)="onPhotoSelected($event)" name="file">
+    <img [src]="imgURL" height="200" *ngIf="imgURL">
+    <br />
+    <label for="name">Name</label>
+    <input id="name" type="text" class="form-control" [(ngModel)]="patient.name" name="name">
+    <label for="weight">Weight</label>
+    <input id="weight" type="text" class="form-control" [(ngModel)]="patient.weight" name="weight">
+    <label for="height">Height</label>
+    <input id="height" type="text" class="form-control" [(ngModel)]="patient.height" name="height">
+  </div>
+  <button class="btn btn-primary">Save</button>
+</form>
