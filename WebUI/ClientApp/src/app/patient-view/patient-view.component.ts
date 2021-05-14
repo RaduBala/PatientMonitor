@@ -12,11 +12,13 @@ import { Chart, ChartDataSets} from 'chart.js';
 })
 export class PatientViewComponent implements OnInit
 {
+  private xAxLength: number = 30;
+
   public culturi = ["porumb", "grau", "floarea soarelui", "toate"];
   @ViewChild("barCanvas", { static: true }) barCanvas: ElementRef;  
   private barChart: Chart;
-  xAx: number[] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30];
-  yAx: number[] = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+  xAx: number[] ;
+  yAx: number[] ;
 
   patient: Patient =
     {
@@ -39,7 +41,17 @@ export class PatientViewComponent implements OnInit
 
   intervalId: any;
 
-  constructor(private patientService: PatientService, private activatedRoute: ActivatedRoute) { }
+  constructor(private patientService: PatientService, private activatedRoute: ActivatedRoute)
+  {
+    this.yAx = new Array(this.xAxLength).fill(0);
+
+    this.xAx = new Array(this.xAxLength);
+
+    for (let i = 0; i < this.xAxLength; i++)
+    {
+      this.xAx[i] = i; 
+    }
+  }
 
   createPulsChart()
   {
@@ -72,7 +84,7 @@ export class PatientViewComponent implements OnInit
               {
                 beginAtZero: true,
                 min: 0,
-                max: 30
+                max: this.xAxLength
               }
             }
           ],
@@ -83,10 +95,6 @@ export class PatientViewComponent implements OnInit
 
   ngOnInit()
   {
-    var test: ChartDataSets = {
-      data: [3]
-    };
-
     this.createPulsChart();
 
     this.activatedRoute.queryParams.subscribe(params => {
@@ -103,9 +111,8 @@ export class PatientViewComponent implements OnInit
       this.patientService.getDynamicData(this.patient.id).subscribe(data => {
         this.dynamicData = data;
 
-        if (this.yAx.length == 30) {
-          this.yAx.shift();
-        }
+        this.yAx.shift();
+
         this.yAx.push(this.dynamicData.heartBeat);
         this.barChart.update();
       });
