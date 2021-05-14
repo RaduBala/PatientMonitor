@@ -25,6 +25,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Remove="ClientApp\src\app\models\dynamicData.ts" />
     <None Remove="ClientApp\src\app\models\patient.ts" />
   </ItemGroup>
 
@@ -34,6 +35,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <TypeScriptCompile Include="ClientApp\src\app\models\dynamicData.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\models\patient.ts" />
   </ItemGroup>
 

@@ -27,4 +27,14 @@
     <label style="font-weight: bold;">Address: </label>
     <input type="text" style="border: white 1px solid;" id="address" [(ngModel)]="patient.address" [readonly]="true" name="address">
   </div>
+
+  <br />
+  <label style="font-weight: bold;">Temperature: </label>
+  <input type="number" style="border: white 1px solid;" id="temperature" [(ngModel)]="dynamicData.temperature" [readonly]="true" name="temperature">
+
+  <br />
+  <label style="font-weight: bold;">Blood oxygen level: </label>&nbsp;
+  <label>{{dynamicData.bloodOxygenLevel}}</label>
+  <br />
+  <canvas #barCanvas height="15" width="50"></canvas>
 </form>

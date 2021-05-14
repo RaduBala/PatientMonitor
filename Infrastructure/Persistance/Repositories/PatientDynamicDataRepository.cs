@@ -42,9 +42,38 @@ namespace Infrastructure.Persistance.Repositories
             patientDynamicData = data;
         }
 
+        private int cnt = 0;
+
         public PatientDynamicData Get(int id)
         {
             PatientDynamicData patientDynamicData = patientDynamicDatas.Find(p => p.Id == id);
+
+            patientDynamicData.BloodOxygenLevel++;
+            patientDynamicData.Temperature += 2;
+
+            if(cnt == 3)
+            {
+                patientDynamicData.HeartBeat = 5;
+            }
+            else
+            if(cnt == 4)
+            {
+                patientDynamicData.HeartBeat = -3;
+            }
+            else
+            if(cnt == 5)
+            {
+                patientDynamicData.HeartBeat = 3;
+            }
+            else
+            if (cnt == 6)
+            {
+                patientDynamicData.HeartBeat = 0;
+
+                cnt = -1;
+            }
+
+            cnt++;
 
             return patientDynamicData;
         }
