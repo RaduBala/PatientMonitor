@@ -5,18 +5,23 @@
     <tr>
       <th>Id</th>
       <th>Name</th>
+      <th>Age</th>
       <th>Weight</th>
       <th>Height</th>
+      <th>Address</th>
     </tr>
   </thead>
   <tbody>
     <tr *ngFor="let p of patients; let indexOfElements=index;">
       <td>{{ indexOfElements + 1 }}</td>
       <td>{{ p.name }}</td>
+      <td>{{ p.age }}</td>
       <td>{{ p.weight }}</td>
       <td>{{ p.height }}</td>
+      <td>{{ p.address }}</td>
       <td>
-        <button class="btn btn-primary" (click)="onView(p)">Edit</button>
+        <button class="btn btn-primary" (click)="onView(p)">View</button>
+        <button class="btn btn-primary" (click)="onEdit(p)">Edit</button>
       </td>
     </tr>
   </tbody>

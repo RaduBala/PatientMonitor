@@ -6,12 +6,18 @@
   <br />
   <label for="patientName">Name</label>
   <input type="text" class="form-control" id="patientName" [(ngModel)]="patient.name" name="patientName">
-  <br /> 
+  <br />
+  <label for="age">Age</label>
+  <input id="age" type="number" class="form-control" [(ngModel)]="patient.age" name="age">
+  <br />
   <label for="weight">Weight</label>
   <input type="number" class="form-control" id="weight" [(ngModel)]="patient.weight" name="weight">
   <br />
   <label for="height">Height</label>
   <input type="number" class="form-control" id="height" [(ngModel)]="patient.height" name="height">
+  <br />
+  <label for="address">Address</label>
+  <input id="address" type="text" class="form-control" [(ngModel)]="patient.address" name="address">
   <br />
   <button class="btn btn-primary">Save</button>
 </form>

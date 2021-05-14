@@ -16,6 +16,8 @@ export class PatientCreateComponent implements OnInit
       weight: 0,
       height: 0,
       image: null,
+      address: null,
+      age: 0,
     };
 
   imgURL: any;
@@ -50,6 +52,8 @@ export class PatientCreateComponent implements OnInit
     formData.append('name', this.patient.name);
     formData.append('weight', this.patient.weight.toString());
     formData.append('height', this.patient.height.toString());
+    formData.append('age', this.patient.age.toString());
+    formData.append('address', this.patient.address);
 
     this.patientService.create(formData).subscribe();
   }

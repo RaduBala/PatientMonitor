@@ -24,11 +24,20 @@ export class PatientListComponent implements OnInit
 
   onView(patient)
   {
-    this.router.navigate(['/patient/edit'],
+    this.router.navigate(['/patient/view'],
     {
       queryParams: {
           id: patient.id,
       }
     });
+  }
+
+  onEdit(patient) {
+    this.router.navigate(['/patient/edit'],
+      {
+        queryParams: {
+          id: patient.id,
+        }
+      });
   }
 }

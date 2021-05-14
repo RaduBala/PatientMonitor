@@ -21,6 +21,10 @@ namespace Application.Patients.Commands.CreatePatient
 
         public int Height { get; set; }
 
+        public int Age { get; set; }
+
+        public string Address { get; set; }
+
         public IFormFile Image { get; set; }
     }
 
@@ -49,6 +53,8 @@ namespace Application.Patients.Commands.CreatePatient
                 Weight = request.Weight,
                 Height = request.Height,
                 Image  = new PatientImage { Image = imageStream.ToArray() },
+                Age    = request.Age,
+                Address = request.Address,
             };
 
             patientRepository.Add(entity);

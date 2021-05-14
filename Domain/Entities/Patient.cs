@@ -14,6 +14,10 @@ namespace Domain.Entities
 
         public int Height { get; set; }
 
+        public int Age { get; set; }
+
+        public string Address { get; set; }
+
         public PatientImage Image { get; set; }
     }
 }

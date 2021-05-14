@@ -14,6 +14,7 @@ import { PatientService } from './services/patient.service';
 import { PatientListComponent } from './patient-list/patient-list.component';
 import { PatientEditComponent } from './patient-edit/patient-edit.component';
 import { PatientCreateComponent } from './patient-create/patient-create.component';
+import { PatientViewComponent } from './patient-view/patient-view.component';
 
 @NgModule({
   declarations: [
@@ -24,19 +25,21 @@ import { PatientCreateComponent } from './patient-create/patient-create.componen
     FetchDataComponent,
     PatientListComponent,
     PatientEditComponent,
-    PatientCreateComponent
+    PatientCreateComponent,
+    PatientViewComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
     HttpClientModule,
     FormsModule,
     RouterModule.forRoot([
-      { path: '', component: HomeComponent, pathMatch: 'full' },
+      { path: '', component: PatientListComponent, pathMatch: 'full' },
       { path: 'counter', component: CounterComponent },
       { path: 'fetch-data', component: FetchDataComponent },
       { path: 'patient/all', component: PatientListComponent },
       { path: 'patient/edit', component: PatientEditComponent },
       { path: 'patient/create', component: PatientCreateComponent },
+      { path: 'patient/view', component: PatientViewComponent },
     ])
   ],
   providers: [

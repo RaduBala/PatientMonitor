@@ -33,6 +33,8 @@ namespace Application.Patients.Queries.GetPatient
                 Weight = patient.Weight,
                 Height = patient.Height,
                 Image = patient.Image.Image,
+                Age = patient.Age,
+                Address = patient.Address,
             };
 
             return getPatientDto;

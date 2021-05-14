@@ -5,4 +5,6 @@ export interface Patient
   weight: number;
   height: number;
   image: any[];
+  age: number;
+  address: string;
 }

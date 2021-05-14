@@ -10,9 +10,13 @@ namespace Application.Patients.Queries.GetPatient
 
         public string Name { get; set; }
 
+        public int Age { get; set; }
+
         public int Weight { get; set; }
 
         public int Height { get; set; }
+
+        public string Address { get; set; }
 
         public byte[] Image { get; set; }
     }

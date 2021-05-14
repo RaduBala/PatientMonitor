@@ -11,8 +11,6 @@ import { PatientService } from '../services/patient.service';
 
 export class PatientEditComponent implements OnInit
 {
-  public chart: any;
-
   patient: Patient =
   {
       id: 0,
@@ -20,22 +18,22 @@ export class PatientEditComponent implements OnInit
       weight: 0,
       height: 0,
       image: null,
+      address: null,
+      age: 0,
   };
 
   dynamicData: any;
 
   imageData: any;
 
-  intervalId: any;
-
-  constructor(private patientService: PatientService, private route: ActivatedRoute, private router: Router)
+  constructor(private patientService: PatientService, private activatedRoute: ActivatedRoute, private router: Router)
   {
 
   }
 
   ngOnInit()
   {
-    this.route.queryParams.subscribe(params =>
+    this.activatedRoute.queryParams.subscribe(params =>
     {
       this.patientService.get(params.id).subscribe(patient =>
       {
@@ -44,20 +42,6 @@ export class PatientEditComponent implements OnInit
         this.imageData = 'data:image/png;base64,' + this.patient.image;
       });
     });
-
-    this.intervalId = setInterval(() =>
-    {
-      this.patientService.getDynamicData(this.patient.id).subscribe();
-    }, 200);
-  }
-
-  periodicRequestDynamicData()
-  {
-
-  }
-
-  ngOnDestroy() {
-    clearInterval(this.intervalId);
   }
 
   submit()

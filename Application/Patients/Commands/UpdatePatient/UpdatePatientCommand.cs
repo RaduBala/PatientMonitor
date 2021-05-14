@@ -15,11 +15,13 @@ namespace Application.Patients.Commands.UpdatePatient
 
         public string Name { get; set; }
 
+        public int Age { get; set; }
+
         public int Weight { get; set; }
 
         public int Height { get; set; }
 
-        public PatientImage Image { get; set; }
+        public string Address { get; set; }
     }
 
     public class UpdatePatientHandler : IRequestHandler<UpdatePatientCommand, int>
@@ -40,9 +42,10 @@ namespace Application.Patients.Commands.UpdatePatient
             {
                 Id = request.Id,
                 Name = request.Name,
+                Age = request.Age,
                 Weight = request.Weight,
                 Height = request.Height,
-                Image = request.Image,
+                Address = request.Address,
             };
 
             patientRepository.Update(entity);

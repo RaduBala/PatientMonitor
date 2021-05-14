@@ -34,7 +34,7 @@ namespace WebUI.Controllers
         [HttpGet("{id}")]
         public async Task<GetPatientDto> GetAsync(int id)
         {
-            var query = new GetPatientQuery() { Id = id };
+            var query  = new GetPatientQuery() { Id = id };
             var result = await mediator.Send(query);
 
             return result;
